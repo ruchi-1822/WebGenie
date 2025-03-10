@@ -14,11 +14,6 @@ from langchain.chains import LLMChain
 import time
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-#groq_api_key = os.getenv("groq_api_key")
-
-
 # Set API Key from Streamlit Secrets or .env
 groq_api_key = st.secrets.get("groq_api_key", os.getenv("groq_api_key"))
 user_agent = st.secrets.get("USER_AGENT", "Mozilla/5.0")  # Use default if not found
@@ -29,14 +24,6 @@ if not groq_api_key:
 
 # Example usage in a web request (if needed)
 headers = {"User-Agent": user_agent}
-
- ## load the Groq API key
-groq_api_key=os.environ['GROQ_API_KEY']
-client = Groq(api_key=groq_api_key)
-
-if not groq_api_key:
-    st.error("⚠️ Please set the GROQ_API_KEY environment variable.")
-    st.stop()
 
 # Streamlit App UI
 import streamlit as st
