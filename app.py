@@ -92,11 +92,11 @@ if website:
     
     # Prepare prompt
     context = " ".join([doc.page_content for doc in docs])
-    prompt = ChatPromptTemplate.from_template(
+    summary_prompt = ChatPromptTemplate.from_template(
         "Given the following webpage content:\n\n{context}\n\nGenerate a concise summary."
     )
     
-    chain = LLMChain(llm=llm, prompt=prompt)
+    chain = LLMChain(llm=llm, prompt=summary_prompt)
     summary = chain.run(context=context)
     st.markdown(f"<div class='ai-message'>🤖 <strong>WebGenie:</strong> {summary}</div>", unsafe_allow_html=True)
 
