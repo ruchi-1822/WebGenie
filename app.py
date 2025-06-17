@@ -99,7 +99,7 @@ if website:
                 st.error(f"❌ Error processing website: {e}")
                 st.stop()
     
-    llm = ChatGroq(groq_api_key=groq_api_key, model_name="mistral‑saba‑24b")
+    llm = ChatGroq(groq_api_key=groq_api_key, model_name="llama-3.3-70b-versatile")
     
     # Summarizing the website
     query = "Summarize the main points of this webpage."
